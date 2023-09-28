@@ -23,13 +23,16 @@
     ),
 
     _date_dim as (
-        select * from {{ ref('date_dim') }}
+        select distinct
+            {{ period_colname }},
+            {{ period_prior_year_colname }}
+        from {{ ref('date_dim') }}
     ),
 
     /*--------------------------------------------------------------------------------------------------
     use date spine to ensure no missed weeks/months/quarters of data
     --------------------------------------------------------------------------------------------------*/
-    _date_spine as (
+    _date_spine_base as (
         {% if period == 'week' %}
             select distinct iso_week_start_date as date_period, 'week' as period_type from _date_dim
         {% elif period == 'month' %}
@@ -41,11 +44,20 @@
         {% endif %}
     ),
 
+    _date_spine as (
+        select distinct
+            _date_spine_base.date_period,
+            _date_spine_base.period_type,
+            _base_tbl.store_name,
+            _base_tbl.category_name,
+            _base_tbl.vendor_name,
+            _base_tbl.item_description
+        from _date_spine_base
+        cross join _base_tbl
+    ),
+
     _period_grouped as (
         select
-            _date_spine.period_type as period_type,
-            _date_spine.date_period as date_period_spine,
-
             -- date trunc to get the week/month/quarter start date
             {% if period == 'week' %}
                 date_trunc('week', _base_tbl.{{ timestamp_field }})
@@ -57,7 +69,6 @@
                 {{ exceptions.raise_compiler_error("Invalid period: '" ~ period ~ "'. Period must be one of ['week', 'month', 'quarter'.") }}
             {% endif %} as date_period,
 
-            _date_dim.{{ period_prior_year_colname }} as prior_year_date_period,
             store_name,
             category_name,
             vendor_name,
@@ -72,19 +83,41 @@
             sum(volume_sold_liters) as total_volume_sold_liters,
             sum(volume_sold_gallons) as total_volume_sold_gallons
 
-        from _date_spine
-        left join _base_tbl
-            on date_trunc('{{ period }}', _base_tbl.date_day) = _date_spine.date_period
+        from _base_tbl
+        group by 1,2,3,4,5
+    ),
+
+    _dates_add as (
+        select
+            _period_grouped.*,
+            _date_dim.{{ period_prior_year_colname }} as prior_year_date_period
+        from _period_grouped
         left join _date_dim
-            on date_trunc('{{ period }}', _base_tbl.date_day) = _date_dim.{{ period_colname }}
-        group by 1,2,3,4,5,6,7,8
+            on date_trunc('{{ period }}', _period_grouped.date_period) = _date_dim.{{ period_colname }}
+    ),
+
+    _joined_spine as (
+        select
+            _date_spine.*,
+            _dates_add.prior_year_date_period,
+            _dates_add.avg_pack_size,
+            _dates_add.mode_pack_size,
+            _dates_add.total_bottles_sold,
+            _dates_add.total_sale_dollars,
+            _dates_add.total_volume_sold_liters,
+            _dates_add.total_volume_sold_gallons
+        from _date_spine
+        left join _dates_add
+            on _date_spine.date_period = _dates_add.date_period
+            and _date_spine.store_name = _dates_add.store_name
+            and _date_spine.category_name = _dates_add.category_name
+            and _date_spine.vendor_name = _dates_add.vendor_name
+            and _date_spine.item_description = _dates_add.item_description
     ),
 
     _final as (
         select
-            date_period_spine as date_period,
-            * exclude (date_period, date_period_spine),
-
+            *,
             -- generate surrogate key to join back on for previous year data
             {{ dbt_utils.generate_surrogate_key(
                 [
@@ -97,7 +130,7 @@
                 )
             }} as period_key
 
-        from _period_grouped
+        from _joined_spine
     )
 
     select * from _final
