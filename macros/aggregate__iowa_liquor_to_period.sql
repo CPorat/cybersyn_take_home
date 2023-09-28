@@ -30,12 +30,6 @@
     use date spine to ensure no missed weeks/months/quarters of data
     --------------------------------------------------------------------------------------------------*/
     _date_spine as (
-        {# select distinct iso_week_start_date as date_period, 'week' as period_type from _date_dim
-        union all
-        select distinct month_start_date as date_period, 'month' as period_type from _date_dim
-        union all
-        select distinct quarter_start_date as date_period, 'quarter' as period_type from _date_dim
-        where period_type = '{{ period }}' #}
         {% if period == 'week' %}
             select distinct iso_week_start_date as date_period, 'week' as period_type from _date_dim
         {% elif period == 'month' %}
