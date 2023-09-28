@@ -1,0 +1,285 @@
+version: 2
+
+models:
+  - name: stg_iowa_liquor__sales_2018_2020
+    description: ""
+    columns:
+      - name: invoice_item_number
+        description: ""
+        tests:
+          - unique
+          - not_null
+
+      - name: date_day
+        description: ""
+
+      - name: store_number
+        description: ""
+
+      - name: store_name
+        description: ""
+
+      - name: address
+        description: ""
+
+      - name: city
+        description: ""
+
+      - name: zip_code
+        description: ""
+
+      - name: store_location
+        description: ""
+
+      - name: county_number
+        description: ""
+
+      - name: county
+        description: ""
+
+      - name: category
+        description: ""
+
+      - name: category_name
+        description: ""
+
+      - name: vendor_number
+        description: ""
+
+      - name: vendor_name
+        description: ""
+
+      - name: item_number
+        description: ""
+
+      - name: item_description
+        description: ""
+
+      - name: pack_size
+        description: ""
+
+      - name: bottle_volume_ml
+        description: ""
+
+      - name: state_bottle_cost
+        description: ""
+
+      - name: state_bottle_retail
+        description: ""
+
+      - name: bottles_sold
+        description: ""
+
+      - name: sale_dollars
+        description: ""
+
+      - name: volume_sold_liters
+        description: ""
+
+      - name: volume_sold_gallons
+        description: ""
+
+      - name: update_timestamp
+        description: ""
+
+      - name: dbt_scd_id
+        description: ""
+
+      - name: dbt_updated_at
+        description: ""
+
+      - name: dbt_valid_from
+        description: ""
+
+      - name: dbt_valid_to
+        description: ""
+
+  - name: stg_iowa_liquor__sales_2019_2021
+    description: ""
+    columns:
+      - name: invoice_item_number
+        description: ""
+        tests:
+          - unique
+          - not_null
+
+      - name: date_day
+        description: ""
+
+      - name: store_number
+        description: ""
+
+      - name: store_name
+        description: ""
+
+      - name: address
+        description: ""
+
+      - name: city
+        description: ""
+
+      - name: zip_code
+        description: ""
+
+      - name: store_location
+        description: ""
+
+      - name: county_number
+        description: ""
+
+      - name: county
+        description: ""
+
+      - name: category
+        description: ""
+
+      - name: category_name
+        description: ""
+
+      - name: vendor_number
+        description: ""
+
+      - name: vendor_name
+        description: ""
+
+      - name: item_number
+        description: ""
+
+      - name: item_description
+        description: ""
+
+      - name: pack_size
+        description: ""
+
+      - name: bottle_volume_ml
+        description: ""
+
+      - name: state_bottle_cost
+        description: ""
+
+      - name: state_bottle_retail
+        description: ""
+
+      - name: bottles_sold
+        description: ""
+
+      - name: sale_dollars
+        description: ""
+
+      - name: volume_sold_liters
+        description: ""
+
+      - name: volume_sold_gallons
+        description: ""
+
+      - name: update_timestamp
+        description: ""
+
+      - name: dbt_scd_id
+        description: ""
+
+      - name: dbt_updated_at
+        description: ""
+
+      - name: dbt_valid_from
+        description: ""
+
+      - name: dbt_valid_to
+        description: ""
+
+
+  - name: stg_iowa_liquor__sales_combined
+    description: ""
+    columns:
+      - name: invoice_item_number
+        description: ""
+        tests:
+          - unique
+          - not_null
+
+      - name: date_day
+        description: ""
+
+      - name: store_number
+        description: ""
+
+      - name: store_name
+        description: ""
+
+      - name: address
+        description: ""
+
+      - name: city
+        description: ""
+
+      - name: zip_code
+        description: ""
+
+      - name: store_location
+        description: ""
+
+      - name: county_number
+        description: ""
+
+      - name: county
+        description: ""
+
+      - name: category
+        description: ""
+
+      - name: category_name
+        description: ""
+
+      - name: vendor_number
+        description: ""
+
+      - name: vendor_name
+        description: ""
+
+      - name: item_number
+        description: ""
+
+      - name: item_description
+        description: ""
+
+      - name: pack_size
+        description: ""
+
+      - name: bottle_volume_ml
+        description: ""
+
+      - name: state_bottle_cost
+        description: ""
+
+      - name: state_bottle_retail
+        description: ""
+
+      - name: bottles_sold
+        description: ""
+
+      - name: sale_dollars
+        description: ""
+
+      - name: volume_sold_liters
+        description: ""
+
+      - name: volume_sold_gallons
+        description: ""
+
+      - name: update_timestamp
+        description: ""
+
+      - name: dbt_scd_id
+        description: ""
+
+      - name: dbt_updated_at
+        description: ""
+
+      - name: dbt_valid_from
+        description: ""
+
+      - name: dbt_valid_to
+        description: ""
+
+      - name: dataset_name
+        description: ""

@@ -1,0 +1,161 @@
+version: 2
+
+sources:
+  - name: IOWA_LIQUOR
+    database: CYBERSYN_INTERVIEW_CASE__CP
+    schema: SRC
+    tables:
+      - name: IOWA_LIQUOR_SALES_2018_2020
+        columns:
+          - name: INVOICE/ITEM NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: DATE
+            data_type: VARCHAR
+            description: ''
+          - name: STORE NUMBER
+            data_type: NUMBER
+            description: ''
+          - name: STORE NAME
+            data_type: VARCHAR
+            description: ''
+          - name: ADDRESS
+            data_type: VARCHAR
+            description: ''
+          - name: CITY
+            data_type: VARCHAR
+            description: ''
+          - name: ZIP CODE
+            data_type: VARCHAR
+            description: ''
+          - name: STORE LOCATION
+            data_type: VARCHAR
+            description: ''
+          - name: COUNTY NUMBER
+            data_type: NUMBER
+            description: ''
+          - name: COUNTY
+            data_type: VARCHAR
+            description: ''
+          - name: CATEGORY
+            data_type: NUMBER
+            description: ''
+          - name: CATEGORY NAME
+            data_type: VARCHAR
+            description: ''
+          - name: VENDOR NUMBER
+            data_type: NUMBER
+            description: ''
+          - name: VENDOR NAME
+            data_type: VARCHAR
+            description: ''
+          - name: ITEM NUMBER
+            data_type: NUMBER
+            description: ''
+          - name: ITEM DESCRIPTION
+            data_type: VARCHAR
+            description: ''
+          - name: PACK
+            data_type: NUMBER
+            description: ''
+          - name: BOTTLE VOLUME (ML)
+            data_type: NUMBER
+            description: ''
+          - name: STATE BOTTLE COST
+            data_type: FLOAT
+            description: ''
+          - name: STATE BOTTLE RETAIL
+            data_type: FLOAT
+            description: ''
+          - name: BOTTLES SOLD
+            data_type: NUMBER
+            description: ''
+          - name: SALE (DOLLARS)
+            data_type: FLOAT
+            description: ''
+          - name: VOLUME SOLD (LITERS)
+            data_type: FLOAT
+            description: ''
+          - name: VOLUME SOLD (GALLONS)
+            data_type: FLOAT
+            description: ''
+          - name: UPDATE TIMESTAMP
+            data_type: TIMESTAMP_LTZ
+            description: ''
+      - name: IOWA_LIQUOR_SALES_2019_2021
+        columns:
+          - name: INVOICE/ITEM NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: DATE
+            data_type: VARCHAR
+            description: ''
+          - name: STORE NUMBER
+            data_type: NUMBER
+            description: ''
+          - name: STORE NAME
+            data_type: VARCHAR
+            description: ''
+          - name: ADDRESS
+            data_type: VARCHAR
+            description: ''
+          - name: CITY
+            data_type: VARCHAR
+            description: ''
+          - name: ZIP CODE
+            data_type: VARCHAR
+            description: ''
+          - name: STORE LOCATION
+            data_type: VARCHAR
+            description: ''
+          - name: COUNTY NUMBER
+            data_type: NUMBER
+            description: ''
+          - name: COUNTY
+            data_type: VARCHAR
+            description: ''
+          - name: CATEGORY
+            data_type: NUMBER
+            description: ''
+          - name: CATEGORY NAME
+            data_type: VARCHAR
+            description: ''
+          - name: VENDOR NUMBER
+            data_type: NUMBER
+            description: ''
+          - name: VENDOR NAME
+            data_type: VARCHAR
+            description: ''
+          - name: ITEM NUMBER
+            data_type: NUMBER
+            description: ''
+          - name: ITEM DESCRIPTION
+            data_type: VARCHAR
+            description: ''
+          - name: PACK
+            data_type: NUMBER
+            description: ''
+          - name: BOTTLE VOLUME (ML)
+            data_type: NUMBER
+            description: ''
+          - name: STATE BOTTLE COST
+            data_type: FLOAT
+            description: ''
+          - name: STATE BOTTLE RETAIL
+            data_type: FLOAT
+            description: ''
+          - name: BOTTLES SOLD
+            data_type: NUMBER
+            description: ''
+          - name: SALE (DOLLARS)
+            data_type: FLOAT
+            description: ''
+          - name: VOLUME SOLD (LITERS)
+            data_type: FLOAT
+            description: ''
+          - name: VOLUME SOLD (GALLONS)
+            data_type: FLOAT
+            description: ''
+          - name: UPDATE TIMESTAMP
+            data_type: TIMESTAMP_LTZ
+            description: ''

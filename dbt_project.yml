@@ -1,0 +1,41 @@
+name: "cybersyn"
+version: "1.0.0"
+config-version: 2
+
+profile: "cybersyn"
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+vars:
+  # for dbt date utils
+  "dbt_date:time_zone": "America/New_York"
+
+  # date in the far future
+  the_distant_future: '2099-01-01'
+
+models:
+  cybersyn:
+    +dbt-osmosis: "_{model}.yml"
+    +materialized: view
+    staging:
+      +schema: staging
+      +materialized: view
+    intermediate:
+      +schema: intermediate
+      +materialized: table
+    reporting:
+      +schema: reporting
+      +materialized: view
+
+snapshots:
+  cybersyn:
+    +target_schema: dev_snapshots

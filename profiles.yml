@@ -1,0 +1,13 @@
+cybersyn:
+  target: dev
+  outputs:
+    dev:
+      account: tjb23840.us-east-1
+      database: CYBERSYN_INTERVIEW_CASE__CP
+      password: Cybersyncase100!
+      role: ACCOUNTADMIN
+      schema: DEV
+      threads: 16
+      type: snowflake
+      user: candidate
+      warehouse: COMPUTE_WH

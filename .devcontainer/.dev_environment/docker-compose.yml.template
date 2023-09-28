@@ -1,0 +1,23 @@
+version: '3'
+name: '__CONTAINER_FOLDER__'
+
+services:
+  __CONTAINER_NAME__:
+    container_name: __CONTAINER_NAME__
+    network_mode: host
+    build:
+      context: ../../
+      dockerfile: .devcontainer/.dev_environment/Dockerfile
+
+    # docker run -it
+    stdin_open: true
+    tty: true
+
+    ports:
+      - "6789:6789"
+
+    volumes:
+      - ../../:/__CONTAINER_NAME__
+      - ~/.dbt/profiles.yml:/root/.dbt/profiles.yml
+
+    user: root

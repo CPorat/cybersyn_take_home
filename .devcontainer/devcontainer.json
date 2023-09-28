@@ -1,0 +1,92 @@
+{
+    "name": "cybersyn_takehome",
+    "dockerComposeFile": "../.devcontainer/.dev_environment/docker-compose.yml",
+    "service": "cybersyn_takehome",
+    "workspaceFolder": "/cybersyn_takehome",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "editor.rulers": [
+                    80,
+                    100
+                ],
+                "terminal.integrated.defaultProfile.linux#": "/bin/zsh",
+                "python.defaultInterpreterPath": "/opt/conda/envs/cybersyn_takehome/bin/python",
+                "python.pythonPath": "/opt/conda/envs/cybersyn_takehome/bin/python",
+                "python.languageServer": "Pylance",
+                "python.linting.enabled": true,
+                "python.linting.pylintEnabled": true,
+                "python.formatting.provider": "black",
+                "python.linting.pycodestyleEnabled": true,
+                "python.formatting.blackPath": "/opt/conda/envs/cybersyn_takehome/bin/black",
+                "python.formatting.blackArgs": [
+                    "--line-length",
+                    "100"
+                ],
+                "git.autofetch": true,
+                "sqlfluff.executablePath": "/opt/conda/envs/cybersyn_takehome/bin/sqlfluff",
+                "sqlfluff.dialect": "snowflake",
+                "sqlfluff.large_file_skip_byte_limit": 0,
+                "files.associations": {
+                    "*.sql": "jinja-sql",
+                    "*.yaml": "jinja-yaml",
+                    "*.yml": "jinja-yaml",
+                    "*.md": "jinja-md"
+                },
+                "editor.quickSuggestions": {
+                    "strings": true
+                },
+                "sql.linter.executablePath": "sqlfluff",
+                "sql.format.enable": false,
+                "editor.fontFamily": "MesloLGS Nerd Font Mono",
+                "editor.fontSize": 12,
+                "terminal.integrated.fontFamily": "MesloLGS Nerd Font Mono",
+                "terminal.integrated.fontWeight": "normal",
+                "terminal.integrated.fontWeightBold": "bold",
+                "terminal.integrated.fontSize": 12,
+                "terminal.integrated.rightClickBehavior": "copyPaste",
+                "workbench.iconTheme": "vscode-icons",
+                "workbench.colorTheme": "Hyper Term Black",
+                "workbench.colorCustomizations": {
+                    "editorGroupHeader.tabsBorder": "#0F6C8C",
+                    "tab.activeBackground": "#804d00"
+                },
+                "editor.fontLigatures": true,
+                "editor.tokenColorCustomizations": {
+                    "comments": "#76eec6"
+                }
+            },
+            "extensions": [
+                "bastienboutonnet.vscode-dbt",
+                "dorzey.vscode-sqlfluff",
+                "editorconfig.editorconfig",
+                "innoverio.vscode-dbt-power-user",
+                "ms-azuretools.vscode-docker",
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-vscode-remote.remote-containers",
+                "ms-vscode-remote.remote-wsl",
+                "ms-vscode.remote-explorer",
+                "visualstudioexptteam.vscodeintellicode",
+                "eamodio.gitlens",
+                "redhat.vscode-yaml",
+                "samuelcolvin.jinjahtml",
+                "vscode-icons-team.vscode-icons",
+                "mhutchie.git-graph",
+                "mechatroner.rainbow-csv",
+                "christian-kohler.path-intellisense",
+                "emeraldwalk.RunOnSave",
+                "Gruntfuggly.todo-tree",
+                "akamud.vscode-theme-onedark",
+                "shardulm94.trailing-spaces",
+                "oderwat.indent-rainbow",
+                "johnpapa.vscode-peacock",
+                "GitHub.copilot",
+                "snowflake.snowflake-vsc",
+                "hsnazar.hyper-term-theme"
+            ]
+        }
+    },
+    "initializeCommand": "git submodule update --init",
+    "remoteUser": "root"
+}

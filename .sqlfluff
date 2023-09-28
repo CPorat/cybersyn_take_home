@@ -1,0 +1,50 @@
+# general
+[sqlfluff]
+dialect = snowflake
+
+templater = dbt
+exclude_rules = ambiguous.column_count, structure.column_order
+max_line_length = 100
+processes = -1
+
+# templating
+[sqlfluff:templater:dbt]
+project_dir = ./
+
+[sqlfluff:templater:jinja]
+apply_dbt_builtins = True
+
+# indentation
+[sqlfluff:indentation]
+allow_implicit_indents = True
+indented_joins = False
+indented_using_on = True
+
+# aliasing
+[sqlfluff:rules:aliasing.table]
+aliasing = explicit
+
+[sqlfluff:rules:aliasing.column]
+aliasing = explicit
+
+[sqlfluff:rules:aliasing.length]
+min_alias_length = 3
+
+[sqlfluff:rules:aliasing.forbid]
+force_enable = True
+
+# capitalisation
+[sqlfluff:rules:capitalisation.keywords]
+capitalisation_policy = lower
+
+[sqlfluff:rules:capitalisation.identifiers]
+capitalisation_policy = lower
+
+[sqlfluff:rules:capitalisation.functions]
+extended_capitalisation_policy = lower
+
+[sqlfluff:rules:capitalisation.literals]
+capitalisation_policy = lower
+
+[sqlfluff:rules:capitalisation.types]
+extended_capitalisation_policy = lower

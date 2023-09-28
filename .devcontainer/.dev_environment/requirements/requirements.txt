@@ -1,0 +1,22 @@
+# dbt
+dbt-core==1.5.1
+dbt-snowflake==1.5.1
+dbt-coves==1.5.1
+dbt-extractor
+dbt-osmosis
+snowflake-connector-python
+
+# other
+black
+chardet
+click
+data-diff
+fastparquet
+jupyterlab
+pandas
+pre-commit
+pyarrow
+PyYAML
+shandy-sqlfmt
+sqlfluff==2.1.1
+sqlfluff-templater-dbt==2.1.1
