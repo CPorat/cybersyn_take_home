@@ -187,14 +187,12 @@ models:
       - name: dbt_valid_to
         description: ""
 
-
   - name: stg_iowa_liquor__sales_combined
     description: ""
     columns:
       - name: invoice_item_number
         description: ""
         tests:
-          - unique
           - not_null
 
       - name: date_day

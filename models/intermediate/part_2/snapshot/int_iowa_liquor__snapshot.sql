@@ -15,7 +15,7 @@ unioned as (
         select * from sales_2019_2021
     )
     -- dedupe on latest timestamp
-    qualify update_timestamp = max(update_timestamp) over (partition by invoice_item_number)
+    -- qualify update_timestamp = max(update_timestamp) over (partition by invoice_item_number)
 ),
 
 -- get version number and far future date
