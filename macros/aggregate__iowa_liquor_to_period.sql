@@ -48,10 +48,10 @@
         select distinct
             _date_spine_base.date_period,
             _date_spine_base.period_type,
-            _base_tbl.store_name,
-            _base_tbl.category_name,
-            _base_tbl.vendor_name,
-            _base_tbl.item_description
+            coalesce(_base_tbl.store_name, 'NO STORE NAME') as store_name,
+            coalesce(_base_tbl.category_name, 'NO CATEGORY NAME') as category_name,
+            coalesce(_base_tbl.vendor_name, 'NO VENDOR NAME') as vendor_name,
+            coalesce(_base_tbl.item_description, 'NO ITEM DESCRIPTION') as item_description
         from _date_spine_base
         cross join _base_tbl
     ),
@@ -69,10 +69,10 @@
                 {{ exceptions.raise_compiler_error("Invalid period: '" ~ period ~ "'. Period must be one of ['week', 'month', 'quarter'.") }}
             {% endif %} as date_period,
 
-            store_name,
-            category_name,
-            vendor_name,
-            item_description,
+            coalesce(store_name, 'NO STORE NAME') as store_name,
+            coalesce(category_name, 'NO CATEGORY NAME') as category_name,
+            coalesce(vendor_name, 'NO VENDOR NAME') as vendor_name,
+            coalesce(item_description, 'NO ITEM DESCRIPTION') as item_description,
 
             -- metrics
             avg(pack_size) as avg_pack_size,
