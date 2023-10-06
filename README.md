@@ -93,7 +93,7 @@ A table with the label fields, current/prior year value fields, and yoy change f
 Output model: `iowa_liquor__incremental.sql`
 
 Related model(s):
-- `int_iowa_liquor__combined.sql`
+- `int_iowa_liquor__incremental.sql`
 
 This incremental model follows the steps outlined in the requirements document:
 
