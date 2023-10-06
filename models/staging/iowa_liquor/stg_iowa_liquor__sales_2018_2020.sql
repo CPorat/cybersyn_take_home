@@ -33,7 +33,9 @@ final as (
         "Sale (Dollars)"::float as sale_dollars,
         "Volume Sold (Liters)"::float as volume_sold_liters,
         "Volume Sold (Gallons)"::float as volume_sold_gallons,
-        "Update Timestamp"::timestamp_ltz as update_timestamp
+        "Update Timestamp"::timestamp_ltz as update_timestamp,
+        min(update_timestamp) over () as min_update_timestamp,
+        max(update_timestamp) over () as max_update_timestamp
 
     from raw_source
 
